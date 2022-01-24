@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>表單的提交處理</title>
+</head>
+<body>
+    <form id="" method="post" action="/register" >
+		<h2 class="wd-login-title">註冊</h2>
+		<label for="nameadd">姓名</label>
+		<input name="name" type="text" id="name" />
+		<br>
+		<label for="age">年齡 </label>
+		<input name="age" type="text" id="age" oninput="value=value.replace(/[^\d]/g,'')" />
+		<br>
+		<br>
+		<input type="submit" value="提交" />
+    </form>
+</body>
+</html>
+
+
+              
+	   

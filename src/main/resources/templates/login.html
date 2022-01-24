@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>User Registration</title>
+</head>
+<body>
+<div align="center">
+    <h1>Customer Login</h1>
+    
+    <form id="userInfo" th:action="@{/login}" method="post" th:object="${customer}" >
+        <label>帳號:</label>
+       	 <input name="account" type="text" id="account" />
+        <br>
+        <br>
+        <label>密碼:</label>
+      	 <input name="password" type="text" id="password" />
+ 
+        <br/>
+ 		<br>
+        <button type="submit">登入</button>    
+    </form>
+</div>
+</body>
+</html>

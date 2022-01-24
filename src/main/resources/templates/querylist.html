@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</head>
+		<style>
+			table, th, td { border:1px solid black;}
+		</style>
+		<body>		 	
+			<h2> Welcome:<span th:text="${message}"></span> </h2>
+
+		    <form action="#" th:action="@{/query}" method="post" th:object="${customer}">
+		        <label>name:</label>
+		        <input type="text" th:field="*{name}" /><br/>
+		 
+		        <br/>
+		 
+		        <button type="submit">query</button>    
+		    </form>
+
+
+
+			<table style="width:100%">
+				<tr>
+				    <th>編號</th>
+				    <th>姓名</th>
+				    <th>年齡</th>
+				</tr>				
+				<tr th:each="customer,status : ${customerlist}">
+		            <td th:text="${customer.id}">id</td>
+		            <td><a th:href="@{/account_maintain(id=${customer.id},name=${customer.name})}" th:text="${customer.name}"></a></td> 
+		            <td th:text="${customer.age}">age</td>
+	       		</tr>
+			</table>
+	
+	
+	
+		<p><a th:href="@{/account_maintain}">純超連結</a></p>
+		<br>
+		
+		<p>(超連結妮妮)</p>
+      	<a th:href="@{/account_maintain(name=${customer.name})}">超連結妮妮 </a>
+      	
+      	<br>
+      	<p>(超連結參數妮妮)</p>
+		<td ><a th:href="@{/account_maintain(name=${customer.name})}"  th:text="${customer.name}">name</a></td>
+
+		</body>
+</html>

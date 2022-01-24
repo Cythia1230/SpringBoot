@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>User Registration</title>
+</head>
+
+		<style>
+			table, th, td { border:1px solid black;}
+		</style>
+
+
+<body>
+<div align="center">
+    <h1>Customer Query</h1>
+			<table style="width:100%">
+				<tr>
+				    <th>賽事名稱</th>
+				    <th>報名開始日</th>
+				    <th>報名截止日</th>
+				    <th>報名截止日</th>
+				</tr>				
+				
+				
+				<tr th:each="raceInfo,status : ${raceInfoList}">
+					
+		            <td th:text="${raceInfo.raceName}">raceName</td>
+		            <td th:text="${raceInfo.stringEnrollStDate}">enrollStDate</td>
+		            <td th:text="${raceInfo.stringEnrollEndDate}">enrollEndDate</td>
+		            <td><a th:href="@{/danceEnroll(raceId=${raceInfo.raceId})}" >報名</a></td>
+	       		</tr>
+	       		
+	       		  
+			</table>
+</div>
+</body>
+
+
+
+
+</html>

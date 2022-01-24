@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springboot.mapper.CustomerMapper">
+
+	<resultMap id="BaseResultMap" type="com.example.springboot.dto.CustomerDTO">
+
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="age" property="age" />
+		<result column="createBy" property="createBy" />
+		<result column="createDt" property="createDt" />
+		<result column="modifyBy" property="modifyBy" />
+		<result column="modifyDt" property="modifyDt" />
+	</resultMap>
+
+	<select id="getAllCustomer" resultMap="BaseResultMap" resultType="com.example.springboot.dto.CustomerDTO">
+		select * from customer;
+	</select>
+	
+	<select id="getCustomerByName" resultMap="BaseResultMap">
+		select * from customer where name=#{name};
+	</select>
+	
+	<insert id="addCustomer" parameterType="com.example.springboot.dto.CustomerDTO">
+		insert into customer (id,name,age,createBy,createDt) values (#{id},#{name},#{age},'SYSTEM',now());
+	</insert>
+	
+	<update id="updateCustomerById" parameterType="com.example.springboot.dto.CustomerDTO">
+		update customer set name=#{name},age=#{age},modifyBy=#{modifyBy},modifyBt=now() where id=#{id};
+	</update>
+	
+	<update id="updateCustomerAgeById" parameterType="com.example.springboot.dto.CustomerDTO">
+		update customer set age=#{age} where id=#{id};
+	</update>
+	
+	<delete id="deleteAllCustomer">
+		delete from customer;
+	</delete>
+	
+	<delete id="deleteCustomerById">
+		delete from customer where id=#{id};
+	</delete>
+	
+	<select id="getCustomerById" resultType="int">
+		select count(*) as cnt from customer where id=#{id};
+	</select>
+	
+	<select id="getCustomerByAccount" resultMap="BaseResultMap">
+		select * from customer where account=#{account};
+	</select>
+	
+</mapper>

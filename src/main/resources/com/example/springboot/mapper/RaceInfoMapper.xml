@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.example.springboot.mapper.RaceInfoMapper">
+	<resultMap id="BaseResultMap" type="com.example.springboot.dto.RaceInfoDTO">
+
+		<id column="id" property="id" />
+		<result column="raceId" property="raceId" />
+		<result column="raceName" property="raceName" />
+		<result column="holdDate" property="holdDate" />
+		<result column="holdPalace" property="holdPalace" />
+		<result column="holdPalaceAdd" property="holdPalaceAdd" />
+		<result column="enrollStDate" property="enrollStDate"   />		
+		<result column="enrollEndDate" property="enrollEndDate" />
+		<result column="sponsor" property="sponsor" />
+		<result column="minimumFee" property="minimumFee" />
+		<result column="maxGroup" property="maxGroup" />
+		<result column="ExtraCharge" property="ExtraCharge" />
+		<result column="remark" property="remark" />
+			
+	</resultMap>
+
+	<select id="getAllRaceInfo" resultMap="BaseResultMap" resultType="com.example.springboot.dto.RaceInfoDTO">
+		select * from raceInfo;
+	</select>
+	
+	
+	<select id="getRaceInfoById" resultMap="BaseResultMap" resultType="com.example.springboot.dto.RaceInfoDTO">
+		select * from raceInfo where raceId=#{raceId} ;
+	</select>
+
+	
+</mapper>
+

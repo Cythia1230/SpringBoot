@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>User uploadFile</title>
+</head>
+<body>
+
+<div align="center">
+    <h1>Upload File</h1>
+    
+	  <p>單檔案上傳</p>
+
+  <form method="post" action="/uploadfile" enctype="multipart/form-data" th:object="${file}">
+
+   <p><input type="file" name="file"></p>
+
+    <p><span th:text="${errorMessage}"></span>message test</p>
+
+    <input type="submit" value="提交">
+
+
+  </form>
+
+      
+
+</div>
+</body>
+</html>
